@@ -1,10 +1,14 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RestaurantWebApp.Models.DAL;
+using RestaurantWebApp.Services;
 
 namespace RestaurantWebApp
 {
@@ -20,6 +24,27 @@ namespace RestaurantWebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // MySQL Database Connection credentials
+            string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
+
+            // Attempts to obtain DB Password from local system and concatenate to connectionString
+            try
+            {
+                string dbPass = Environment.GetEnvironmentVariable("MYSQL_REMOTE_DB");
+                connectionString += dbPass + ";";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
+            // Adds DbContext to services via dependency injection
+            services.AddDbContext<RestaurantDbContext>(options => options.UseMySql(connectionString));
+            
+            // Gives controller scoped access to DAOs and Services via dependency injection
+            services.AddScoped<IMenuItemDao, MenuItemDao>();
+            services.AddScoped<IMenuItemService, MenuItemService>();
+            
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory
