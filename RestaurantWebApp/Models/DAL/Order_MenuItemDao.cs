@@ -13,5 +13,10 @@ namespace RestaurantWebApp.Models.DAL
             _context = context;
         }
         
+        public List<Order_MenuItemDto> GetAllOrder_MenuItems()
+        {
+            List<Order_MenuItemDto> allOrder_MenuItems = _context.Order_MenuItems.ToList();
+            return allOrder_MenuItems;
+        }
     }
 }

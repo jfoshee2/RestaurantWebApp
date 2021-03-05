@@ -45,6 +45,15 @@ namespace RestaurantWebApp
             services.AddScoped<IMenuItemDao, MenuItemDao>();
             services.AddScoped<IMenuItemService, MenuItemService>();
             
+            services.AddScoped<IOrderDao, OrderDao>();
+            services.AddScoped<IOrderService, OrderService>();
+            
+            services.AddScoped<IOrder_MenuItemDao, Order_MenuItemDao>();
+            services.AddScoped<IOrder_MenuItemService, Order_MenuItemService>();
+            
+            services.AddScoped<IDeliveryOrderDao, DeliveryOrderDao>();
+            services.AddScoped<IDeliveryOrderService, DeliveryOrderService>();
+            
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory

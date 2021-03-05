@@ -25,7 +25,13 @@ namespace RestaurantWebApp.Controllers
         
         // Endpoints
         
-        
+        // "GET /api/order_menuitem/"
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var result = _service.GetAllOrder_MenuItems().ToArray();
+            return Ok(result);
+        }
         
     }
 }
