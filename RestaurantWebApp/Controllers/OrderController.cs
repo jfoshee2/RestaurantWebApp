@@ -22,10 +22,16 @@ namespace RestaurantWebApp.Controllers
             _service = service;
             _logger = logger;
         }
-        
+
         // Endpoints
-        
-        
-        
+
+        // "GET /api/Order/"
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var result = _service.GetAllOrders().ToArray();
+            return Ok(result);
+        }
+
     }
 }
