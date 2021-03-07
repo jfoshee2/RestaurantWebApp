@@ -16,6 +16,12 @@ namespace RestaurantWebApp.Services
         {
             _dao = dao;
         }
-        
+
+        // Returns all Orders in DB
+        public List<OrderDto> GetAllOrders()
+        {
+            var result = _dao.GetAllOrders();
+            return result;
+        }
     }
 }

@@ -5,6 +5,7 @@ namespace RestaurantWebApp.Services
 {
     public interface IOrderService
     {
-        
+        // Should implement business logic for returning all orders
+        List<OrderDto> GetAllOrders();
     }
 }
