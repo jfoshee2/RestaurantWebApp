@@ -17,5 +17,11 @@ namespace RestaurantWebApp.Services
             _dao = dao;
         }
         
+        // Returns all Order_MenuItems in DB
+        public List<Order_MenuItemDto> GetAllOrder_MenuItems()
+        {
+            var result = _dao.GetAllOrder_MenuItems();
+            return result;
+        }
     }
 }
