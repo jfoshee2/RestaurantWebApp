@@ -7,5 +7,7 @@ namespace RestaurantWebApp.Services
     {
         // Should implement business logic for returning all menu items
         List<MenuItemDto> GetAllMenuItems();
+
+        bool CreateMenuItem(MenuItemDto item);
     }
 }

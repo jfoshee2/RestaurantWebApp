@@ -7,5 +7,7 @@ namespace RestaurantWebApp.Models.DAL
     {
         // Should return all menu items
         List<MenuItemDto> GetAllMenuItems();
+
+        bool CreateMenuItem(MenuItemDto item);
     }
 }
