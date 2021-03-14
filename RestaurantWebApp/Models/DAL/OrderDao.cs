@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using RestaurantWebApp.Models.DTL;
 
@@ -17,6 +18,20 @@ namespace RestaurantWebApp.Models.DAL
         {
             List<OrderDto> allOrders = _context.Orders.ToList();
             return allOrders;
+        }
+
+        public bool CreateOrder(OrderDto order)
+        {
+            try
+            {
+                _context.Orders.Add(order);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }

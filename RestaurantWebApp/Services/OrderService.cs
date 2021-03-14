@@ -23,5 +23,18 @@ namespace RestaurantWebApp.Services
             var result = _dao.GetAllOrders();
             return result;
         }
+
+        // Returns attempts to create order in DB
+        public bool CreateOrder(OrderDto order)
+        {
+            if (order.OrderType != "PICKUP" && order.OrderType != "DINEIN" && order.OrderType != "DELIVERY")
+            {
+                return false;
+            }
+            else
+            {
+                return _dao.CreateOrder(order);
+            }
+        }
     }
 }

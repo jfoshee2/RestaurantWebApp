@@ -33,5 +33,12 @@ namespace RestaurantWebApp.Controllers
             return Ok(result);
         }
 
+        // "POST /api/Order/"
+        [HttpPost]
+        public IActionResult Create(OrderDto order)
+        {
+            return _service.CreateOrder(order) ? (IActionResult)Ok() : BadRequest();
+        }
+
     }
 }
