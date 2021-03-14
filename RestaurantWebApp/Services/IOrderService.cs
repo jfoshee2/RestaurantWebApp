@@ -7,5 +7,7 @@ namespace RestaurantWebApp.Services
     {
         // Should implement business logic for returning all orders
         List<OrderDto> GetAllOrders();
+
+        bool CreateOrder(OrderDto order);
     }
 }

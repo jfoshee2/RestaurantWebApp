@@ -7,5 +7,8 @@ namespace RestaurantWebApp.Models.DAL
     {
         // Should return all orders
         List<OrderDto> GetAllOrders();
+
+        // Should create order
+        bool CreateOrder(OrderDto order);
     }
 }
