@@ -3,9 +3,12 @@ using RestaurantWebApp.Models.DTL;
 
 namespace RestaurantWebApp.Services
 {
-    public interface IOrder_MenuItemService
+    public interface IOrderItemService
     {
         // Should implement business logic for returning all order menu-items
-        List<Order_MenuItemDto> GetAllOrder_MenuItems();
+        List<OrderItemDto> GetAllOrderItems();
+
+        // Should attempt to create an OrderItem in DB
+        bool CreateOrderItem(OrderItemDto orderItem);
     }
 }
