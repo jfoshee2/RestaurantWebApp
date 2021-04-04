@@ -48,8 +48,8 @@ namespace RestaurantWebApp
             services.AddScoped<IOrderDao, OrderDao>();
             services.AddScoped<IOrderService, OrderService>();
             
-            services.AddScoped<IOrder_MenuItemDao, Order_MenuItemDao>();
-            services.AddScoped<IOrder_MenuItemService, Order_MenuItemService>();
+            services.AddScoped<IOrderItemDao, OrderItemDao>();
+            services.AddScoped<IOrderItemService, OrderItemService>();
             
             services.AddScoped<IDeliveryOrderDao, DeliveryOrderDao>();
             services.AddScoped<IDeliveryOrderService, DeliveryOrderService>();
