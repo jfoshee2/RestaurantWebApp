@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 using RestaurantWebApp.Models.DTL;
 using RestaurantWebApp.Services;
 
@@ -33,5 +34,11 @@ namespace RestaurantWebApp.Controllers
             return Ok(result);
         }
         
+        // "POST /api/menuitem/"
+        [HttpPost]
+        public IActionResult CreateMenuItem(MenuItemDto item)
+        {
+            return _service.CreateMenuItem(item) ? (IActionResult) Ok() : BadRequest();
+        }
     }
 }

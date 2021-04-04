@@ -23,5 +23,10 @@ namespace RestaurantWebApp.Services
             var result = _dao.GetAllMenuItems();
             return result;
         }
+
+        public bool CreateMenuItem(MenuItemDto item)
+        {
+            return _dao.CreateMenuItem(item);
+        }
     }
 }

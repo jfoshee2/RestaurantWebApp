@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using RestaurantWebApp.Models.DTL;
 
@@ -18,6 +19,21 @@ namespace RestaurantWebApp.Models.DAL
         {
             List<MenuItemDto> allMenuItems = _context.MenuItems.ToList();
             return allMenuItems;
+        }
+
+        public bool CreateMenuItem(MenuItemDto item)
+        {
+            
+            try
+            {
+                _context.MenuItems.Add(item);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }
