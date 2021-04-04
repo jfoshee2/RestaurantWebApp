@@ -27,7 +27,7 @@ namespace RestaurantWebApp.Models.DAL
             try
             {
                 _context.MenuItems.Add(item);
-                _context.MenuItems.SaveChanges();
+                _context.SaveChanges();
                 return true;
             }
             catch (Exception e)
